@@ -52,5 +52,11 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChamadoFacil.BusinessLogic\ChamadoFacil.BusinessLogic.csproj">
+      <Project>{B596B7A7-199B-4770-B16F-3257B08F2664}</Project>
+      <Name>ChamadoFacil.BusinessLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using ChamadoFacil.BusinessLogic.Authentication;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 
 namespace ChamadoFacil.DependencyInjection
@@ -28,7 +29,7 @@ namespace ChamadoFacil.DependencyInjection
         {
             _services = services ?? new ServiceCollection();
 
-            //_services.AddScoped<IEmployeeBll, EmployeeBll>();
+            _services.AddScoped<IAuthenticationBll, AuthenticationBll>();
 
             return _services;
         }

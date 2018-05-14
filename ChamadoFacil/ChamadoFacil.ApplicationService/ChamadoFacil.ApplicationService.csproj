@@ -9,10 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\ChamadoFacil.BusinessLogic\ChamadoFacil.BusinessLogic.csproj" />
     <ProjectReference Include="..\ChamadoFacil.CrossCutting\ChamadoFacil.CrossCutting.csproj" />
     <ProjectReference Include="..\ChamadoFacil.DependencyInjection\ChamadoFacil.DependencyInjection.csproj" />
   </ItemGroup>
