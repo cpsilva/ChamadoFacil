@@ -40,9 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\AuthenticatedModel.cs" />
-    <Compile Include="Models\AuthenticationModel.cs" />
+    <Compile Include="Authentication\AuthenticatedModel.cs" />
+    <Compile Include="Authentication\AuthenticationModel.cs" />
+    <Compile Include="BaseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\Usuario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

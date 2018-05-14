@@ -13,3 +13,11 @@
 /ChamadoFacil/node_modules
 /ChamadoFacil/packages
 /ChamadoFacil/ChamadoFacil.Models/obj/Debug
+/ChamadoFacil/ChamadoFacil.ApplicationService/bin/Debug/netcoreapp2.0
+/ChamadoFacil/ChamadoFacil.CrossCutting/bin/Debug
+/ChamadoFacil/ChamadoFacil.BusinessLogic/bin/Debug
+/ChamadoFacil/ChamadoFacil.DataAccess/bin/Debug
+/ChamadoFacil/ChamadoFacil.DataAccess.Test/bin/Debug
+/ChamadoFacil/ChamadoFacil.DataAccess.Test/obj/Debug
+/ChamadoFacil/ChamadoFacil.DependencyInjection/bin/Debug
+/ChamadoFacil/ChamadoFacil.Models/bin/Debug
