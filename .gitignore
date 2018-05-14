@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/ChamadoFacil/.vs/ChamadoFacil/v15
+/ChamadoFacil/ChamadoFacil.ApplicationService/obj
+/ChamadoFacil/ChamadoFacil.BusinessLogic/obj/Debug
+/ChamadoFacil/ChamadoFacil.CrossCutting/obj/Debug
+/ChamadoFacil/ChamadoFacil.DataAccess/obj/Debug
+/ChamadoFacil/ChamadoFacil.DependencyInjection/obj/Debug
+/ChamadoFacil/ChamadoFacil.Mapping/obj/Debug
