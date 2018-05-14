@@ -1,18 +1,31 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { NgModule, LOCALE_ID } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-
+import { RouterModule } from '@angular/router';
+import { LayoutModule } from './layout/layout.module';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LoginModule } from './views/login/login.module';
+import { AppRoutingModule } from './routing/routing.module';
+import { AdminModule } from './views/admin/admin.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule,
+    FormsModule,
+    LoginModule,
+    AdminModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: "pt-BR" },
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
