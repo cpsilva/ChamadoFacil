@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChamadoFacil.ApplicationService", "ChamadoFacil.ApplicationService\ChamadoFacil.ApplicationService.csproj", "{4FEA50C9-09C4-4EAF-96B5-46D5BF771C18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChamadoFacil.ApplicationService", "ChamadoFacil.ApplicationService\ChamadoFacil.ApplicationService.csproj", "{4FEA50C9-09C4-4EAF-96B5-46D5BF771C18}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChamadoFacil.CrossCutting", "ChamadoFacil.CrossCutting\ChamadoFacil.CrossCutting.csproj", "{07736E39-E012-451C-9A69-8A3A177AD0AC}"
 EndProject
@@ -35,6 +35,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "ChamadoFacil.UserInterface"
 		VWDPort = "55533"
 		SlnRelativePath = "ChamadoFacil.UserInterface\"
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChamadoFacil.Models", "ChamadoFacil.Models\ChamadoFacil.Models.csproj", "{E1CDC311-406F-469D-9E1B-23223620D309}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -70,6 +72,10 @@ Global
 		{9B448FD1-4BCB-4F06-86A9-12380AF2E7B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B448FD1-4BCB-4F06-86A9-12380AF2E7B2}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{9B448FD1-4BCB-4F06-86A9-12380AF2E7B2}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{E1CDC311-406F-469D-9E1B-23223620D309}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1CDC311-406F-469D-9E1B-23223620D309}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1CDC311-406F-469D-9E1B-23223620D309}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1CDC311-406F-469D-9E1B-23223620D309}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
