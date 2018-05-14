@@ -9,6 +9,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { LoginModule } from './views/login/login.module';
 import { AppRoutingModule } from './routing/routing.module';
 import { AdminModule } from './views/admin/admin.module';
+import { CadastroModule } from './views/cadastro/cadastro.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AdminModule } from './views/admin/admin.module';
     FormsModule,
     LoginModule,
     AdminModule,
+    CadastroModule,
     AppRoutingModule
   ],
   providers: [

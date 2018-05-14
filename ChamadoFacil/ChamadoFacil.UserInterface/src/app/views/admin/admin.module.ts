@@ -4,6 +4,7 @@ import { AdminComponent } from './admin.component';
 import { LayoutModule } from '../../layout/layout.module';
 import { IndexComponent } from './index/index.component';
 import { RouterModule } from '@angular/router';
+import { ListagemComponent } from './listagem/listagem.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
   ],
   declarations: [
     AdminComponent,
-    IndexComponent
+    IndexComponent,
+    ListagemComponent
   ],
   exports: [
     AdminComponent,
