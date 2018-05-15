@@ -12,6 +12,7 @@ export class AuthenticationGuard implements CanActivate {
     private readonly router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
+    if (route.component == "CadastroComponent") { return true; }
     if (this.authenticationService.isAuthenticated()) { return true; }
     this.router.navigate(["/login"]);
     return false;
