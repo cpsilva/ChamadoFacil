@@ -121,6 +121,8 @@
   <ItemGroup>
     <Compile Include="CommandRepository.cs" />
     <Compile Include="CommandStack.cs" />
+    <Compile Include="Database\Configuration\CategoriaEntityTypeConfiguration.cs" />
+    <Compile Include="Database\Configuration\ChamadoEntityTypeConfiguration.cs" />
     <Compile Include="Database\Configuration\UserEntityTypeConfiguration.cs" />
     <Compile Include="Database\Context\DatabaseContext.cs" />
     <Compile Include="ICommandRepository.cs" />

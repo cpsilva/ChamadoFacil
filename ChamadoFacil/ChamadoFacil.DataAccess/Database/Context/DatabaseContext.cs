@@ -1,13 +1,16 @@
 ﻿using ChamadoFacil.DataAccess.Database.Configuration;
+using ChamadoFacil.Models.Categoria;
+using ChamadoFacil.Models.Chamado;
 using ChamadoFacil.Models.User;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace ChamadoFacil.DataAccess.Database.Context
 {
     public class DatabaseContext : DbContext
     {
-        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<UsuarioModel> Usuarios { get; set; }
+        public DbSet<ChamadoModel> Chamados { get; set; }
+        public DbSet<CategoriaModel> Categorias { get; set; }
 
         public DatabaseContext()
         {

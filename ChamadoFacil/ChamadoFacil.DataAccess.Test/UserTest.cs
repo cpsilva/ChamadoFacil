@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace ChamadoFacil.DataAccess.Test
 {
     [TestClass]
-    public class UnitTest1
+    public class UserTest
     {
         [TestMethod]
         public void GerarTabela()
@@ -15,7 +15,7 @@ namespace ChamadoFacil.DataAccess.Test
             Container.AddDbContextInMemoryDatabase<DatabaseContext>();
             IUnitOfWork unit = Container.GetService<IUnitOfWork>();
 
-            Usuario u = new Usuario
+            UsuarioModel u = new UsuarioModel
             {
                 Nome = "Caio Pires",
                 Email = "caio.pires@gmail.com",

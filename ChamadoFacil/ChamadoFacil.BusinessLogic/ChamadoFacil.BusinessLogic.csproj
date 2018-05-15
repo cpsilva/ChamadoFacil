@@ -42,10 +42,16 @@
   <ItemGroup>
     <Compile Include="Authentication\AuthenticationBll.cs" />
     <Compile Include="Authentication\IAuthenticationBll.cs" />
+    <Compile Include="Chamado\ChamadoBll.cs" />
+    <Compile Include="Chamado\IChamadoBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\ChamadoFacil.DataAccess\ChamadoFacil.DataAccess.csproj">
+      <Project>{E5FD2A4C-F5A4-4EFE-B9A6-0FF1FA81739D}</Project>
+      <Name>ChamadoFacil.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ChamadoFacil.Models\ChamadoFacil.Models.csproj">
       <Project>{E1CDC311-406F-469D-9E1B-23223620D309}</Project>
       <Name>ChamadoFacil.Models</Name>

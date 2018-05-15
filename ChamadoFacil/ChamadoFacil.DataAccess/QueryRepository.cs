@@ -50,6 +50,13 @@ namespace ChamadoFacil.DataAccess
                 .SingleOrDefault(predicate);
         }
 
+        public T Selecionar(int id)
+        {
+            return _dbContext
+                .Set<T>()
+                .Find(id);
+        }
+
         public T SelecionarUltimo<TKey>(Expression<Func<T, bool>> predicate, Expression<Func<T, TKey>> order)
         {
             return _dbContext

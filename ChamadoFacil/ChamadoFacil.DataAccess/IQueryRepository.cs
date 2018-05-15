@@ -15,6 +15,8 @@ namespace ChamadoFacil.DataAccess
 
         T Selecionar(Expression<Func<T, bool>> predicate);
 
+        T Selecionar(int id);
+
         T SelecionarUltimo<TKey>(Expression<Func<T, bool>> predicate, Expression<Func<T, TKey>> order);
     }
 }

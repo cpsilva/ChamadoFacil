@@ -1,10 +1,14 @@
-﻿using ChamadoFacil.Models.User;
+﻿using ChamadoFacil.Models.Categoria;
+using ChamadoFacil.Models.Chamado;
+using ChamadoFacil.Models.User;
 
 namespace ChamadoFacil.DataAccess
 {
     public interface ICommandStack
     {
-        ICommandRepository<Usuario> Usuario { get; }
+        ICommandRepository<UsuarioModel> Usuario { get; }
+        ICommandRepository<ChamadoModel> Chamado { get; }
+        ICommandRepository<CategoriaModel> Categoria { get; }
 
         void SaveChanges();
     }

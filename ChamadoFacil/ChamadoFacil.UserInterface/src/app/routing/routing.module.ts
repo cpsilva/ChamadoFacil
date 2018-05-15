@@ -24,9 +24,9 @@ const routes: Routes = [
       { path: '', component: IndexComponent },
       { path: 'listagem', component: ListagemComponent },
       {
-        path: 'formulario', component: FormularioComponent, children: [
+        path: 'chamado', component: FormularioComponent, children: [
           { path: 'visualizar/:id', component: FormularioComponent },
-          { path: 'editar/:id', component: FormularioComponent }
+          { path: 'alterar/:id', component: FormularioComponent }
         ]
       },
     ]

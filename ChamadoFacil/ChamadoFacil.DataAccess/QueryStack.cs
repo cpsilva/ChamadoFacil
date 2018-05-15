@@ -1,24 +1,27 @@
 ﻿using ChamadoFacil.DataAccess.Database.Context;
+using ChamadoFacil.Models.Categoria;
+using ChamadoFacil.Models.Chamado;
 using ChamadoFacil.Models.User;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ChamadoFacil.DataAccess
 {
     public class QueryStack : IQueryStack
     {
-        private readonly DatabaseContext context;
+        private readonly DatabaseContext DatabaseContext;
 
-        public IQueryRepository<Usuario> Usuario { get; }
+        public IQueryRepository<UsuarioModel> Usuario { get; }
+
+        public IQueryRepository<CategoriaModel> Categoria { get; }
+
+        public IQueryRepository<ChamadoModel> Chamado { get; }
 
         public QueryStack(DatabaseContext databaseContext)
         {
-            context = databaseContext;
+            DatabaseContext = databaseContext;
 
-            Usuario = new QueryRepository<Usuario>(context);
+            Usuario = new QueryRepository<UsuarioModel>(DatabaseContext);
+            Categoria = new QueryRepository<CategoriaModel>(DatabaseContext);
+            Chamado = new QueryRepository<ChamadoModel>(DatabaseContext);
         }
     }
 }

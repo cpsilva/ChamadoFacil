@@ -1,23 +1,29 @@
 ﻿using ChamadoFacil.DataAccess.Database.Context;
+using ChamadoFacil.Models.Categoria;
+using ChamadoFacil.Models.Chamado;
 using ChamadoFacil.Models.User;
 
 namespace ChamadoFacil.DataAccess
 {
     public class CommandStack : ICommandStack
     {
-        public ICommandRepository<Usuario> Usuario { get; }
-        private DatabaseContext Context { get; }
-
         public CommandStack(DatabaseContext databaseContext)
         {
-            Context = databaseContext;
+            DatabaseContext = databaseContext;
 
-            Usuario = new CommandRepository<Usuario>(Context);
+            Usuario = new CommandRepository<UsuarioModel>(DatabaseContext);
+            Chamado = new CommandRepository<ChamadoModel>(DatabaseContext);
+            Categoria = new CommandRepository<CategoriaModel>(DatabaseContext);
         }
+
+        public ICommandRepository<CategoriaModel> Categoria { get; }
+        public ICommandRepository<ChamadoModel> Chamado { get; }
+        public ICommandRepository<UsuarioModel> Usuario { get; }
+        private DatabaseContext DatabaseContext { get; }
 
         public void SaveChanges()
         {
-            Context.SaveChanges();
+            DatabaseContext.SaveChanges();
         }
     }
 }
