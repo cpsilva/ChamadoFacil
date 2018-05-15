@@ -10,11 +10,11 @@ import { FormularioComponent } from '../views/admin/formulario/formulario.compon
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: 'cadastro',
-    component: CadastroComponent
+    component: CadastroComponent,
   },
 
   {

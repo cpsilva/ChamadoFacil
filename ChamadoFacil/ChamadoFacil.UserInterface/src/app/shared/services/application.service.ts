@@ -4,7 +4,7 @@ import { ConverterService } from "./converter.service";
 import { environment } from "../../../environments/environment";
 import { Http, Headers } from '@angular/http';
 
-@Injectable()
+@Injectable({ providedIn: "root" })
 export class ApplicationService {
   constructor(private http: HttpClient,
     private converterService: ConverterService) { }

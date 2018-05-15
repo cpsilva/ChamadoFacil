@@ -6,12 +6,14 @@ import { IndexComponent } from './index/index.component';
 import { RouterModule } from '@angular/router';
 import { ListagemComponent } from './listagem/listagem.component';
 import { FormularioComponent } from './formulario/formulario.component';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     LayoutModule,
-    RouterModule
+    RouterModule,
+    SharedModule
   ],
   declarations: [
     AdminComponent,
