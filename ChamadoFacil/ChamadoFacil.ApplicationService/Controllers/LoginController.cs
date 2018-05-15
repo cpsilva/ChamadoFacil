@@ -1,11 +1,13 @@
 ﻿using ChamadoFacil.BusinessLogic.Authentication;
 using ChamadoFacil.Models.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ChamadoFacil.ApplicationService.Controllers
 {
     [Route("[controller]")]
+    [EnableCors("AllowAnyOrigin")]
     public class LoginController : Controller
     {
         private readonly IAuthenticationBll _authenticationBll;
@@ -15,10 +17,11 @@ namespace ChamadoFacil.ApplicationService.Controllers
             _authenticationBll = authenticationBll;
         }
 
-        [AllowAnonymous]
-        public AuthenticatedModel Get(AuthenticationModel authentication)
+        public IActionResult Post([FromBody]AuthenticationModel authentication)
         {
-            return _authenticationBll.Authenticate(authentication);
+            var authenticated = _authenticationBll.Authenticate(authentication);
+            var jwt = _authenticationBll.GenerateJwt(authenticated);
+            return Json(jwt);
         }
     }
 }

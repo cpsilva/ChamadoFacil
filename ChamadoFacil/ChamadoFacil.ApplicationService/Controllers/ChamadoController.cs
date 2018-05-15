@@ -7,6 +7,7 @@ using System.Collections.Generic;
 namespace ChamadoFacil.ApplicationService.Controllers
 {
     [Route("[controller]")]
+    [Authorize]
     public class ChamadoController : Controller
     {
         private readonly IChamadoBll _chamadoBll;

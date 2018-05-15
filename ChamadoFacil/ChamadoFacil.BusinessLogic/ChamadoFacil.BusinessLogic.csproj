@@ -45,9 +45,15 @@
     <Compile Include="Chamado\ChamadoBll.cs" />
     <Compile Include="Chamado\IChamadoBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuario\IUsuarioBll.cs" />
+    <Compile Include="Usuario\UsuarioBll.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\ChamadoFacil.CrossCutting\ChamadoFacil.CrossCutting.csproj">
+      <Project>{07736E39-E012-451C-9A69-8A3A177AD0AC}</Project>
+      <Name>ChamadoFacil.CrossCutting</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ChamadoFacil.DataAccess\ChamadoFacil.DataAccess.csproj">
       <Project>{E5FD2A4C-F5A4-4EFE-B9A6-0FF1FA81739D}</Project>
       <Name>ChamadoFacil.DataAccess</Name>

@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthenticationModel } from '../models/authentication.model';
+import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: "root" })
 export class AuthenticationService {
-  private service = "AuthenticationService";
+  private service = "Login";
   private token = "token";
 
   constructor(
@@ -14,9 +15,9 @@ export class AuthenticationService {
   ) { }
 
   authenticate(authentication: AuthenticationModel) {
-    this.http.post(`${this.service}/Authenticate`, authentication).subscribe((response: string) => {
+    this.http.post(environment.serviceUrl + `${this.service}`, authentication).subscribe((response: string) => {
       this.setToken(response);
-      this.router.navigate(["/home"]);
+      this.router.navigate(["/admin"]);
     });
   }
 

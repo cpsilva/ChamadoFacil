@@ -42,13 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authentication\AuthenticatedModel.cs" />
-    <Compile Include="Authentication\AuthenticationModel.cs" />
+    <Compile Include="Authentication\AuthenticationModel.cs">
+      <Generator>DtsGenerator</Generator>
+      <LastGenOutput>AuthenticationModel.cs.d.ts</LastGenOutput>
+    </Compile>
     <Compile Include="BaseModel.cs" />
     <Compile Include="Categoria\CategoriaModel.cs" />
     <Compile Include="Chamado\ChamadoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\UsuarioModel.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

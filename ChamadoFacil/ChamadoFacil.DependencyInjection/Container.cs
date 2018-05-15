@@ -45,6 +45,7 @@ namespace ChamadoFacil.DependencyInjection
         {
             _services.AddDbContext<T>(options => options.UseSqlServer(connectionString));
             var context = GetService<T>();
+            context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
             context.Database.Migrate();
         }

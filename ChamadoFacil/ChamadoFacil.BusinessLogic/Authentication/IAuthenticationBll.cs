@@ -1,12 +1,13 @@
 ﻿using ChamadoFacil.Models.Models;
+using ChamadoFacil.Models.User;
 
 namespace ChamadoFacil.BusinessLogic.Authentication
 {
     public interface IAuthenticationBll
     {
-        AuthenticatedModel Authenticate(AuthenticationModel authentication);
+        UsuarioModel Authenticate(AuthenticationModel authentication);
 
-        string GenerateJwt(AuthenticatedModel authenticated);
+        string GenerateJwt(UsuarioModel authenticated);
 
         void Logout(long userId);
     }
