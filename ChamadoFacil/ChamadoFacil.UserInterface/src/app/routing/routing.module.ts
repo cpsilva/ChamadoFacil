@@ -6,6 +6,7 @@ import { IndexComponent } from '../views/admin/index/index.component';
 import { CadastroComponent } from '../views/cadastro/cadastro.component';
 import { ListagemComponent } from '../views/admin/listagem/listagem.component';
 import { FormularioComponent } from '../views/admin/formulario/formulario.component';
+import { AuthenticationGuard } from '../shared/guards/authentication.guard';
 
 const routes: Routes = [
   {
@@ -29,7 +30,8 @@ const routes: Routes = [
           { path: 'alterar/:id', component: FormularioComponent }
         ]
       },
-    ]
+    ],
+    canActivate: [AuthenticationGuard]
   },
 
   { path: '', component: LoginComponent, pathMatch: 'full' },
