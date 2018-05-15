@@ -5,6 +5,7 @@ import { AdminComponent } from '../views/admin/admin.component';
 import { IndexComponent } from '../views/admin/index/index.component';
 import { CadastroComponent } from '../views/cadastro/cadastro.component';
 import { ListagemComponent } from '../views/admin/listagem/listagem.component';
+import { FormularioComponent } from '../views/admin/formulario/formulario.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,12 @@ const routes: Routes = [
     children: [
       { path: '', component: IndexComponent },
       { path: 'listagem', component: ListagemComponent },
+      {
+        path: 'formulario', component: FormularioComponent, children: [
+          { path: 'visualizar/:id', component: FormularioComponent },
+          { path: 'editar/:id', component: FormularioComponent }
+        ]
+      },
     ]
   },
 
