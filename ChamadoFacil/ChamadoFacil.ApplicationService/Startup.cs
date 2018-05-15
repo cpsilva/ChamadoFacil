@@ -3,8 +3,6 @@ using ChamadoFacil.DataAccess.Database.Context;
 using ChamadoFacil.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Cors.Internal;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -24,24 +22,7 @@ namespace ChamadoFacil.ApplicationService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDependencyInjectionCustom(Configuration);
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowAnyOrigin",
-                    builder =>
-                    {
-                        builder
-                        .AllowAnyOrigin()
-                        .AllowAnyMethod()
-                        .AllowAnyHeader()
-                        .AllowCredentials();
-                    });
-            });
-
-            services.Configure<MvcOptions>(options =>
-            {
-                options.Filters.Add(new CorsAuthorizationFilterFactory("AllowAnyOrigin"));
-            });
-
+            services.AddCors();
             services.AddMvc();
             Container.RegisterServices(services);
             Container.AddDbContext<DatabaseContext>("Data Source=PE00Q1ME\\SQLEXPRESS;Initial Catalog=ChamadoFacil;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
@@ -56,7 +37,7 @@ namespace ChamadoFacil.ApplicationService
             }
 
             app.UseExceptionCustom(env);
-            app.UseCors("AllowAnyOrigin");
+            app.UseCorsCustom();
             app.UseMvc();
         }
     }
