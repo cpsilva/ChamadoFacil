@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ChamadoFacil.ApplicationService.Controllers
 {
     [Route("[controller]")]
-    [EnableCors("AllowAnyOrigin")]
+    [AllowAnonymous]
     public class LoginController : Controller
     {
         private readonly IAuthenticationBll _authenticationBll;
