@@ -1,9 +1,7 @@
 ﻿using ChamadoFacil.DataAccess.Database.Context;
 using ChamadoFacil.DependencyInjection;
 using ChamadoFacil.Models.User;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 
 namespace ChamadoFacil.DataAccess.Test
 {
