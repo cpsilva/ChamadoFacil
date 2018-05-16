@@ -16,7 +16,6 @@ export class CadastroComponent {
   ) { }
 
   cadastrar() {
-    console.log(this.model);
     this.applicationService.post("Cadastro", this.model).subscribe(result => {
       this.route.navigate(['/login']);
     });
