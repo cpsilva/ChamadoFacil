@@ -27,7 +27,7 @@ namespace ChamadoFacil.ApplicationService.Controllers
             return _chamadoBll.Selecionar(id);
         }
 
-        public void Put([FromBody]ChamadoModel chamadoModel)
+        public void Post([FromBody]ChamadoModel chamadoModel)
         {
             _chamadoBll.Salvar(chamadoModel);
         }

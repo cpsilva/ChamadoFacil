@@ -23,7 +23,7 @@ export class AuthenticationService {
 
   logout() {
     if (this.isAuthenticated()) {
-      this.http.post(`${this.service}/Logout`, {}).subscribe();
+      this.http.post(environment.serviceUrl + `/Logout`, {}).subscribe();
     }
 
     this.setToken(null);

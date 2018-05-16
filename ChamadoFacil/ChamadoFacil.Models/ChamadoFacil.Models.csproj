@@ -47,8 +47,14 @@
       <LastGenOutput>AuthenticationModel.cs.d.ts</LastGenOutput>
     </Compile>
     <Compile Include="BaseModel.cs" />
-    <Compile Include="Categoria\CategoriaModel.cs" />
-    <Compile Include="Chamado\ChamadoModel.cs" />
+    <Compile Include="Categoria\CategoriaModel.cs">
+      <Generator>DtsGenerator</Generator>
+      <LastGenOutput>CategoriaModel.cs.d.ts</LastGenOutput>
+    </Compile>
+    <Compile Include="Chamado\ChamadoModel.cs">
+      <Generator>DtsGenerator</Generator>
+      <LastGenOutput>ChamadoModel.cs.d.ts</LastGenOutput>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User\UsuarioModel.cs">
       <Generator>DtsGenerator</Generator>

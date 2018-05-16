@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ApplicationService } from '../../../shared/services/application.service';
+import { Router } from '@angular/router';
+import { chamadoModel } from '../../../shared/models/ChamadoModel';
 
 @Component({
   selector: 'app-formulario',
@@ -9,9 +12,12 @@ export class FormularioComponent implements OnInit {
   path: string;
   titulo: string;
   desabilitado: boolean;
+  model: chamadoModel = new chamadoModel();
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
+    private applicationService: ApplicationService
   ) {
     this.path = this.route.snapshot.children.toString();
     this.verificarRota();
@@ -34,12 +40,24 @@ export class FormularioComponent implements OnInit {
       this.titulo = 'Incluir';
     }
 
-    //if (this.path == 'editar' || this.path == 'visualizar') {
-    //  this.selecionar(this.route.snapshot.params['id']);
-    //}
+    if (this.path.includes('alterar') || this.path.includes('visualizar')) {
+      this.selecionar(this.route.snapshot.params['id']);
+    }
   }
 
   public desabilitarTela() {
     this.desabilitado = true;
+  }
+
+  salvar() {
+    this.applicationService.post("Chamado", this.model).subscribe(result => {
+      this.router.navigate(['/admin/listagem']);
+    });
+  }
+
+  selecionar(id: number) {
+    //this.applicationService.get("Chamado", id).subscribe(result => {
+    //  this.model = result;
+    //});
   }
 }
