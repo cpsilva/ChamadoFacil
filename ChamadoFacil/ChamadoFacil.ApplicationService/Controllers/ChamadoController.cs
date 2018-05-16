@@ -7,7 +7,6 @@ using System.Collections.Generic;
 namespace ChamadoFacil.ApplicationService.Controllers
 {
     [Route("[controller]")]
-    [Authorize]
     public class ChamadoController : Controller
     {
         private readonly IChamadoBll _chamadoBll;
@@ -17,21 +16,25 @@ namespace ChamadoFacil.ApplicationService.Controllers
             _chamadoBll = chamadoBll;
         }
 
+        [HttpGet]
         public IList<ChamadoModel> Get()
         {
             return _chamadoBll.Listar();
         }
 
+        [HttpGet]
         public ChamadoModel Get(int id)
         {
             return _chamadoBll.Selecionar(id);
         }
 
+        [HttpPost]
         public void Post([FromBody]ChamadoModel chamadoModel)
         {
             _chamadoBll.Salvar(chamadoModel);
         }
 
+        [HttpDelete]
         public void Delete(int id)
         {
             _chamadoBll.Apagar(id);
