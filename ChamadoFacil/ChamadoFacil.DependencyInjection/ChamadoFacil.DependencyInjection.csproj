@@ -69,6 +69,9 @@
     <Reference Include="Microsoft.Extensions.Primitives, Version=2.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Primitives.2.0.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Remotion.Linq, Version=2.1.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
       <HintPath>..\packages\Remotion.Linq.2.1.1\lib\net45\Remotion.Linq.dll</HintPath>
     </Reference>
@@ -133,6 +136,10 @@
     <ProjectReference Include="..\ChamadoFacil.BusinessLogic\ChamadoFacil.BusinessLogic.csproj">
       <Project>{B596B7A7-199B-4770-B16F-3257B08F2664}</Project>
       <Name>ChamadoFacil.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChamadoFacil.CrossCutting\ChamadoFacil.CrossCutting.csproj">
+      <Project>{07736E39-E012-451C-9A69-8A3A177AD0AC}</Project>
+      <Name>ChamadoFacil.CrossCutting</Name>
     </ProjectReference>
     <ProjectReference Include="..\ChamadoFacil.DataAccess\ChamadoFacil.DataAccess.csproj">
       <Project>{E5FD2A4C-F5A4-4EFE-B9A6-0FF1FA81739D}</Project>

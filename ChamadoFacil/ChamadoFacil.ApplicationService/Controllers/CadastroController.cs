@@ -16,7 +16,7 @@ namespace ChamadoFacil.ApplicationService.Controllers
         }
 
         [AllowAnonymous]
-        public void Put(UsuarioModel usuario)
+        public void Post([FromBody]UsuarioModel usuario)
         {
             _usuarioBll.Cadastrar(usuario);
         }

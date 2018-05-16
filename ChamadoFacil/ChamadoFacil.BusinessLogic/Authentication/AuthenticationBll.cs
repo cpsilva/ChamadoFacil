@@ -22,10 +22,9 @@ namespace ChamadoFacil.BusinessLogic.Authentication
 
         public UsuarioModel Authenticate(AuthenticationModel authentication)
         {
-            authentication.Login = _hash.Generate(authentication.Login);
             authentication.Password = _hash.Generate(authentication.Password);
 
-            var authenticated = _unitOfWork.QueryStack.Usuario.Selecionar(x => x.Email == authentication.Login && x.Senha == authentication.Password);
+            var authenticated = _unitOfWork.QueryStack.Usuario.Selecionar(x => x.Email.Equals(authentication.Login) && x.Senha == authentication.Password);
 
             return authenticated;
         }

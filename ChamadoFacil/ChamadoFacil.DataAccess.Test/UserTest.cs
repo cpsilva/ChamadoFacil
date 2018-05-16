@@ -22,14 +22,6 @@ namespace ChamadoFacil.DataAccess.Test
                 Senha = "q1w2e3r4"
             };
 
-            //using (var context = new DatabaseContext())
-            //{
-            //    context.Database.EnsureCreated();
-            //    context.Database.Migrate();
-            //    context.Usuarios.Add(u);
-            //    context.SaveChanges();
-            //}
-
             unit.CommandStack.Usuario.Adicionar(u);
             unit.CommandStack.SaveChanges();
         }

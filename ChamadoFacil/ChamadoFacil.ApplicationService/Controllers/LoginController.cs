@@ -1,6 +1,7 @@
 ﻿using ChamadoFacil.BusinessLogic.Authentication;
 using ChamadoFacil.Models.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ChamadoFacil.ApplicationService.Controllers

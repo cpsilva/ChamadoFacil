@@ -14,4 +14,10 @@
     <ProjectReference Include="..\ChamadoFacil.DependencyInjection\ChamadoFacil.DependencyInjection.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

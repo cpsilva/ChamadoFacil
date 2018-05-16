@@ -1,5 +1,9 @@
 ﻿using ChamadoFacil.BusinessLogic.Authentication;
 using ChamadoFacil.BusinessLogic.Chamado;
+using ChamadoFacil.BusinessLogic.Usuario;
+using ChamadoFacil.CrossCutting.Security.Cryptography;
+using ChamadoFacil.CrossCutting.Security.Hash;
+using ChamadoFacil.CrossCutting.Security.JsonWebToken;
 using ChamadoFacil.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,8 +36,17 @@ namespace ChamadoFacil.DependencyInjection
         {
             _services = services ?? new ServiceCollection();
 
+            //ChamadoFacil.BusinessLogic
             _services.AddScoped<IAuthenticationBll, AuthenticationBll>();
             _services.AddScoped<IChamadoBll, ChamadoBll>();
+            _services.AddScoped<IUsuarioBll, UsuarioBll>();
+
+            //ChamadoFacil.CrossCutting
+            _services.AddScoped<IJWT, Jwt>();
+            _services.AddScoped<IHash, Hash>();
+            _services.AddScoped<ICryptography, Cryptography>();
+
+            //ChamadoFacil.DataAccess
             _services.AddScoped<IUnitOfWork, UnitOfWork>();
             _services.AddScoped<IQueryStack, QueryStack>();
             _services.AddScoped<ICommandStack, CommandStack>();
@@ -45,7 +58,6 @@ namespace ChamadoFacil.DependencyInjection
         {
             _services.AddDbContext<T>(options => options.UseSqlServer(connectionString));
             var context = GetService<T>();
-            context.Database.EnsureDeleted();
             context.Database.EnsureCreated();
             context.Database.Migrate();
         }

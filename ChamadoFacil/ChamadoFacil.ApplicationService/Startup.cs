@@ -24,7 +24,7 @@ namespace ChamadoFacil.ApplicationService
             services.AddCors();
             services.AddMvcCustom();
             Container.RegisterServices(services);
-            Container.AddDbContext<DatabaseContext>("Data Source=PE00Q1ME\\SQLEXPRESS;Initial Catalog=ChamadoFacil;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            Container.AddDbContext<DatabaseContext>(Configuration.GetConnectionString(nameof(DatabaseContext)));
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -32,7 +32,7 @@ namespace ChamadoFacil.ApplicationService
             app.UseExceptionCustom(env);
             app.UseAuthentication();
             app.UseCorsCustom();
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc();
         }
     }
 }
