@@ -4,6 +4,7 @@ import { ApplicationService } from './application.service';
 import { ConverterService } from './converter.service';
 import { AuthenticationService } from './authentication.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ArrayService } from './array.service';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
   providers: [
     ApplicationService,
     ConverterService,
-    AuthenticationService
+    AuthenticationService,
+    ArrayService
   ]
 })
 export class ServicesModule { }

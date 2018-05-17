@@ -1,0 +1,8 @@
+<select class="form-control" #select
+        [(ngModel)]="model"
+        (change)="onChange(select.value)"
+        [attr.required]="required || isRequired ? 'required' : null"
+        [attr.disabled]="isDisabled || !list || list.length == 0 ? 'disabled' : null">
+  <option *ngIf="list && list.length > 1" selected="{{ list && list.length > 1 ? 'selected' : '' }}" value="">{{placeholder}}</option>
+  <option *ngFor="let item of list" [value]="item.key">{{item.value}}</option>
+</select>

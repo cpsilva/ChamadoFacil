@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="Authentication\AuthenticationBll.cs" />
     <Compile Include="Authentication\IAuthenticationBll.cs" />
+    <Compile Include="Categoria\CategoriaBll.cs" />
+    <Compile Include="Categoria\ICategoriaBll.cs" />
     <Compile Include="Chamado\ChamadoBll.cs" />
     <Compile Include="Chamado\IChamadoBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

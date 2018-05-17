@@ -5,6 +5,7 @@ import { ServicesModule } from './services/services.module';
 import { GuardsModule } from './guards/guards.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ComponentsModule } from './components/components.module';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { FormsModule } from '@angular/forms';
     InterceptorModule,
     ServicesModule,
     GuardsModule,
+    ComponentsModule
   ],
   exports: [
     CommonModule,
@@ -21,6 +23,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     InterceptorModule,
     GuardsModule,
+    ComponentsModule
   ],
   declarations: []
 })

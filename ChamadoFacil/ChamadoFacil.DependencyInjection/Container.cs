@@ -1,4 +1,5 @@
 ﻿using ChamadoFacil.BusinessLogic.Authentication;
+using ChamadoFacil.BusinessLogic.Categoria;
 using ChamadoFacil.BusinessLogic.Chamado;
 using ChamadoFacil.BusinessLogic.Usuario;
 using ChamadoFacil.CrossCutting.Security.Cryptography;
@@ -40,6 +41,7 @@ namespace ChamadoFacil.DependencyInjection
             _services.AddScoped<IAuthenticationBll, AuthenticationBll>();
             _services.AddScoped<IChamadoBll, ChamadoBll>();
             _services.AddScoped<IUsuarioBll, UsuarioBll>();
+            _services.AddScoped<ICategoriaBll, CategoriaBll>();
 
             //ChamadoFacil.CrossCutting
             _services.AddScoped<IJWT, Jwt>();

@@ -30,9 +30,11 @@
                   <div class="row">
                     <div class="col-lg-4">
                       <label [class.required]="!desabilitado">Categoria:</label>
-                      <select class="form-control">
-                        <option>opt1</option>
-                      </select>
+                      <app-dropdown-list name="idCategoria"
+                                         placeholder="Selecione uma opção"
+                                         servico="Categoria"
+                                         [(ngModel)]="model.idCategoria">
+                      </app-dropdown-list>
                     </div>
                   </div>
                 </div>
