@@ -1,8 +1,6 @@
 ﻿using ChamadoFacil.BusinessLogic.Chamado;
 using ChamadoFacil.Models.Chamado;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
 
 namespace ChamadoFacil.ApplicationService.Controllers
 {

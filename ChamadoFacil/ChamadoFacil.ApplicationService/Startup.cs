@@ -32,7 +32,7 @@ namespace ChamadoFacil.ApplicationService
             app.UseExceptionCustom(env);
             app.UseAuthentication();
             app.UseCorsCustom();
-            app.UseMvc();
+            app.UseMvcWithDefaultRoute();
         }
     }
 }
