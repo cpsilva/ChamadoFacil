@@ -20,6 +20,7 @@
 ## Configuração do Banco de dados:
 
 Para configurar o acesso a dados da aplicação deve-se alterar o arquivo appsettings.json que se encontra no projeto ChamadoFacil.ApplicationService como na imagem a baixo e lá alterar o DatabaseContext e lá utilizar uma connection string que aponte para o banco local ou passando o endereço de um banco em nuvem.
+
 ![](https://github.com/cpsilva/ChamadoFacil/blob/master/Screenshots/appsettings.PNG)
 
 ## Execução do Projeto Angular e IIS:
