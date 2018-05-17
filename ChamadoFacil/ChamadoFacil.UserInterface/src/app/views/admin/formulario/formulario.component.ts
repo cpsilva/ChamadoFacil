@@ -12,7 +12,8 @@ export class FormularioComponent implements OnInit {
   path: string;
   titulo: string;
   desabilitado: boolean;
-  model: chamadoModel = new chamadoModel();
+  id: number;
+  model = new chamadoModel();
 
   constructor(
     private route: ActivatedRoute,
@@ -20,6 +21,7 @@ export class FormularioComponent implements OnInit {
     private applicationService: ApplicationService
   ) {
     this.path = this.route.snapshot.children.toString();
+    this.id = this.route.snapshot.params['id']
     this.verificarRota();
   }
 
@@ -41,7 +43,7 @@ export class FormularioComponent implements OnInit {
     }
 
     if (this.path.includes('alterar') || this.path.includes('visualizar')) {
-      this.selecionar(this.route.snapshot.params['id']);
+      this.selecionar(this.id);
     }
   }
 
@@ -56,8 +58,8 @@ export class FormularioComponent implements OnInit {
   }
 
   selecionar(id: number) {
-    //this.applicationService.get("Chamado", id).subscribe(result => {
-    //  this.model = result;
-    //});
+    this.applicationService.get<chamadoModel>("Chamado", id).subscribe(result => {
+      this.model = result;
+    });
   }
 }

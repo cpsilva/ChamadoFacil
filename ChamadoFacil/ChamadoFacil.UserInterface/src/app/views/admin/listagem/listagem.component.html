@@ -77,15 +77,15 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Teste</td>
-                  <td>Teste mensagem</td>
-                  <td>Processo</td>
-                  <td><span class="label label-success">Baixa</span></td>
+                <tr *ngFor="let chamado of model">
+                  <td>{{chamado?.id}}</td>
+                  <td>{{chamado?.titulo}}</td>
+                  <td>{{chamado?.mensagem}}</td>
+                  <td>{{chamado?.categoria}}</td>
+                  <td><span class="label label-success">{{chamado?.urgencia}}</span></td>
                   <td>
-                    <a href="#" class="btn btn-default btn-sm" data-toggle="tooltip" title="" data-original-title="Visualizar"><i class="fa fa-file-text-o"></i></a>
-                    <a href="#" class="btn btn-sm btn-default" data-toggle="tooltip" title="" data-original-title="Editar"><span class="fa fa-pencil"></span></a>
+                    <a routerLink="/admin/chamado/visualizar/{{chamado.id}}" class="btn btn-default btn-sm" data-toggle="tooltip" title="" data-original-title="Visualizar"><i class="fa fa-file-text-o"></i></a>
+                    <a routerLink="/admin/chamado/alterar/{{chamado.id}}" class="btn btn-sm btn-default" data-toggle="tooltip" title="" data-original-title="Alterar"><span class="fa fa-pencil"></span></a>
                   </td>
                 </tr>
               </tbody>

@@ -9,15 +9,33 @@
     <form id="formulario" #formulario="ngForm" ngValidate (ngSubmit)="cadastrar()">
       <div class="form-group has-feedback">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
-        <input type="text" class="form-control" placeholder="Nome Completo" name="nome" [(ngModel)]="model.nome">
+        <input id="nome" type="text" class="form-control" required placeholder="Nome Completo" name="nome" [(ngModel)]="model.nome" #nome="ngModel">
+        <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="alert alert-danger">
+          <div *ngIf="nome.errors.required">
+            Nome é um campo obrigatorio.
+          </div>
+        </div>
       </div>
       <div class="form-group has-feedback">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-        <input type="email" class="form-control" placeholder="Email" name="email" [(ngModel)]="model.email">
+        <input id="email" type="email" class="form-control" placeholder="Email" name="email" [(ngModel)]="model.email" #email="ngModel" required>
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+          <div *ngIf="email.errors.required">
+            E-mail é um campo obrigatorio.
+          </div>
+        </div>
       </div>
       <div class="form-group has-feedback">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-        <input type="password" class="form-control" placeholder="Senha" name="senha" [(ngModel)]="model.senha">
+        <input id="senha" type="password" class="form-control" placeholder="Senha" name="senha" [(ngModel)]="model.senha" #senha="ngModel" minlength="8" required>
+        <div *ngIf="senha.invalid && (senha.dirty || senha.touched)" class="alert alert-danger">
+          <div *ngIf="senha.errors.required">
+            Senha é um campo obrigatorio.
+          </div>
+          <div *ngIf="senha.errors.minlength">
+            a senha deve conter no minimo 8 caracteres.
+          </div>
+        </div>
       </div>
       <div class="form-group has-feedback">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>

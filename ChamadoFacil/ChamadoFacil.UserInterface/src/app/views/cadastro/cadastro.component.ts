@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ApplicationService } from '../../shared/services/application.service';
 import { usuarioModel } from '../../shared/models/UsuarioModel';
 import { Router } from '@angular/router';
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: 'app-cadastro',

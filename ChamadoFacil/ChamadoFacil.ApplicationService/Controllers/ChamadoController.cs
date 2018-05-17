@@ -17,12 +17,6 @@ namespace ChamadoFacil.ApplicationService.Controllers
         }
 
         [HttpGet]
-        public IList<ChamadoModel> Get()
-        {
-            return _chamadoBll.Listar();
-        }
-
-        [HttpGet]
         public ChamadoModel Get(int id)
         {
             return _chamadoBll.Selecionar(id);
@@ -32,12 +26,6 @@ namespace ChamadoFacil.ApplicationService.Controllers
         public void Post([FromBody]ChamadoModel chamadoModel)
         {
             _chamadoBll.Salvar(chamadoModel);
-        }
-
-        [HttpDelete]
-        public void Delete(int id)
-        {
-            _chamadoBll.Apagar(id);
         }
     }
 }
