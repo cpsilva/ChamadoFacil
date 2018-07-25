@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { LayoutModule } from './layout/layout.module';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { LoginModule } from './views/login/login.module';
 import { AppRoutingModule } from './routing/routing.module';
 import { AdminModule } from './views/admin/admin.module';
@@ -26,7 +26,7 @@ import { CadastroModule } from './views/cadastro/cadastro.module';
   ],
   providers: [
     { provide: LOCALE_ID, useValue: "pt-BR" },
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
+    { provide: LocationStrategy, useClass: PathLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })
