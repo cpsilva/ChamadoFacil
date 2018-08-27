@@ -1,4 +1,4 @@
-import { chamadoModel } from "./ChamadoModel";
+import { chamadoModel } from './ChamadoModel';
 
 export class categoriaModel {
   id: number;

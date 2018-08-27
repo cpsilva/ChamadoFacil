@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from "@angular/forms";
+import { NgForm } from '@angular/forms';
 import { AuthenticationModel } from '../../shared/models/authentication.model';
 import { AuthenticationService } from '../../shared/services/authentication.service';
 

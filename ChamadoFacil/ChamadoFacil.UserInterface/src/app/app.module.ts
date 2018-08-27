@@ -25,7 +25,7 @@ import { CadastroModule } from './views/cadastro/cadastro.module';
     AppRoutingModule
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: "pt-BR" },
+    { provide: LOCALE_ID, useValue: 'pt-BR' },
     { provide: LocationStrategy, useClass: PathLocationStrategy }
   ],
   bootstrap: [AppComponent]

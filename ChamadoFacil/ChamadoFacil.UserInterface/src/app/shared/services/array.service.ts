@@ -105,7 +105,7 @@ export class ArrayService {
       }
     }
 
-    for (var k in a) {
+    for (let k in a) {
       diff.push(k);
     }
 
