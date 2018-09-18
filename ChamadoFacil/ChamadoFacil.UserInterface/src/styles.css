@@ -85,9 +85,6 @@ body {
   float: left
 }
 
-.place-info-box-text {
-}
-
 .place-info-box-star {
   display: block;
   font-size: 18px;
@@ -203,9 +200,6 @@ body {
   width: 80%;
 }
 
-.menu-item-info-box-text {
-}
-
 .menu-item-info-box-more {
   display: block;
 }
@@ -252,10 +246,6 @@ body {
   font-weight: bold;
 }
 
-
-.detail-footer {
-  padding: 0px
-}
 
   .detail-footer > a {
     text-align: center;

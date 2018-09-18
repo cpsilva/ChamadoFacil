@@ -40,7 +40,7 @@ export class ArrayService {
   }
 
   sort(list, column, order) {
-    if (order == 'ASC') {
+    if (order === 'ASC') {
       list.sort((a, b) => {
         if (a[column] > b[column]) {
           return 1;
@@ -56,7 +56,7 @@ export class ArrayService {
       return order = 'DESC';
     }
 
-    if (order == 'DESC') {
+    if (order === 'DESC') {
       list.sort((a, b) => {
         if (a[column] > b[column]) {
           return -1;
