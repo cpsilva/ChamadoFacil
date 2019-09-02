@@ -3,6 +3,9 @@
 ## Análise de Código
 [![CodeFactor](https://www.codefactor.io/repository/github/cpsilva/chamadofacil/badge)](https://www.codefactor.io/repository/github/cpsilva/chamadofacil)
 
+# Integração Contínua
+[![Build status](https://ci.appveyor.com/api/projects/status/k3jawa7ghc88fp74?svg=true)](https://ci.appveyor.com/project/cpsilva/chamadofacil)
+
 ## Tecnologias Utilizadas:
 
 * Visual Studio 2017
