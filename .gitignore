@@ -25,3 +25,10 @@
 /ChamadoFacil/ChamadoFacil.Mapping/bin/Debug
 /ChamadoFacil/.vs/ChamadoFacil/v14
 /ChamadoFacil/ChamadoFacil.ApplicationService/ChamadoFacil.ApplicationService.csproj.user
+/ChamadoFacil/ChamadoFacil.BusinessLogic/obj
+/ChamadoFacil/ChamadoFacil.CrossCutting/obj
+/ChamadoFacil/ChamadoFacil.DataAccess/obj
+/ChamadoFacil/ChamadoFacil.DataAccess.Test/obj
+/ChamadoFacil/ChamadoFacil.DependencyInjection/obj
+/ChamadoFacil/ChamadoFacil.Mapping/obj
+/ChamadoFacil/ChamadoFacil.Models/obj
