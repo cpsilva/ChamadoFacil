@@ -57,10 +57,6 @@
     <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ChamadoFacil.DataAccess\ChamadoFacil.DataAccess.csproj" />
     <ProjectReference Include="..\ChamadoFacil.DependencyInjection\ChamadoFacil.DependencyInjection.csproj" />
     <ProjectReference Include="..\ChamadoFacil.Models\ChamadoFacil.Models.csproj" />

@@ -13,11 +13,6 @@
     <DebugType>pdbonly</DebugType>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Net.Http" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Update="Authentication\AuthenticationModel.cs">
       <Generator>DtsGenerator</Generator>
       <LastGenOutput>AuthenticationModel.cs.d.ts</LastGenOutput>
