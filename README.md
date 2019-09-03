@@ -14,7 +14,7 @@
 * ASP.NET Core 2.0
 * EntityFrameworkCore 2.0
 * Angular 8.0
-* Typescript 2.7.2
+* Typescript 3.5.3
 * HTML5
 * CSS3
 * Admin LTE 2.3.11
