@@ -47,11 +47,6 @@
     <PackageReference Include="System.Threading" Version="4.3.0" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Net.Http" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ChamadoFacil.BusinessLogic\ChamadoFacil.BusinessLogic.csproj" />
     <ProjectReference Include="..\ChamadoFacil.CrossCutting\ChamadoFacil.CrossCutting.csproj" />
     <ProjectReference Include="..\ChamadoFacil.DataAccess\ChamadoFacil.DataAccess.csproj" />
