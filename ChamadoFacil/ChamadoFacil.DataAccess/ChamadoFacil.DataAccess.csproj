@@ -48,9 +48,4 @@
   <ItemGroup>
     <ProjectReference Include="..\ChamadoFacil.Models\ChamadoFacil.Models.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Net.Http" />
-  </ItemGroup>
 </Project>
