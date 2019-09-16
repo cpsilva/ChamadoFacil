@@ -1,5 +1,5 @@
-import { categoriaModel } from "./CategoriaModel";
-import { usuarioModel } from "./UsuarioModel";
+import { categoriaModel } from './CategoriaModel';
+import { usuarioModel } from './UsuarioModel';
 
 export class chamadoModel {
   id: number;
