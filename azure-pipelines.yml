@@ -3,6 +3,11 @@
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
 resources:
 - repo: self
   clean: true
@@ -18,21 +23,34 @@ steps:
 - task: Npm@1
   displayName: 'NPM Install'
   inputs:
-    workingDir: ChamadoFacil/ChamadoFacil/ChamadoFacil.UserInterface
+    workingDir: 'ChamadoFacil\ChamadoFacil.UserInterface'
     verbose: true
 
 - task: Npm@1
   displayName: 'NPM Install Angular CLI'
   inputs:
     command: custom
-    workingDir: ChamadoFacil/ChamadoFacil/ChamadoFacil.UserInterface
+    workingDir: 'ChamadoFacil\ChamadoFacil.UserInterface'
     verbose: false
     customCommand: 'install -g @angular/cli'
 
 - task: Npm@1
-  displayName: 'NPM Run Production'
+  displayName: 'NPM Run Script Build'
   inputs:
     command: custom
-    workingDir: ChamadoFacil/ChamadoFacil/ChamadoFacil.UserInterface
+    workingDir: 'ChamadoFacil\ChamadoFacil.UserInterface'
     verbose: false
-    customCommand: 'ng build --prod --aot'
+    customCommand: 'run-script build'
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet restore'
+  inputs:
+    command: 'restore'
+    projects: 'ChamadoFacil\ChamadoFacil.ApplicationService\ChamadoFacil.ApplicationService.csproj'
+    feedsToUse: 'select'
+
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build'
+  inputs:
+    command: 'build'
+    projects: 'ChamadoFacil/ChamadoFacil.ApplicationService/ChamadoFacil.ApplicationService.csproj'
