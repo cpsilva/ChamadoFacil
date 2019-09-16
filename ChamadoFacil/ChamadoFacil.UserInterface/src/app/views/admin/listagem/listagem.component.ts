@@ -18,7 +18,7 @@ export class ListagemComponent implements OnInit {
   }
 
   listar() {
-    this.applicationService.get<Array<chamadoModel>>("Listagem").subscribe(result => {
+    this.applicationService.get<Array<chamadoModel>>('Listagem').subscribe(result => {
       this.model = result;
     });
   }

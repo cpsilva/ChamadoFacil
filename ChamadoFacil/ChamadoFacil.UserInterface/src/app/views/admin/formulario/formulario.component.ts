@@ -50,13 +50,13 @@ export class FormularioComponent implements OnInit {
   }
 
   salvar() {
-    this.applicationService.post("Chamado", this.model).subscribe(result => {
+    this.applicationService.post('Chamado', this.model).subscribe(result => {
       this.router.navigate(['/admin/listagem']);
     });
   }
 
   selecionar(id) {
-    this.applicationService.get<chamadoModel>("Chamado", { id: id }).subscribe(result => {
+    this.applicationService.get<chamadoModel>('Chamado', { id: id }).subscribe(result => {
       this.model = result;
     });
   }
