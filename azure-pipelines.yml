@@ -3,15 +3,36 @@
 # Add steps that run tests, create a NuGet package, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
-trigger:
-- master
+resources:
+- repo: self
+  clean: true
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: Hosted VS2017
+  demands: npm
 
 variables:
-  buildConfiguration: 'Release'
+  BuildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+- task: Npm@1
+  displayName: 'NPM Install'
+  inputs:
+    workingDir: ChamadoFacil/ChamadoFacil/ChamadoFacil.UserInterface
+    verbose: true
+
+- task: Npm@1
+  displayName: 'NPM Install Angular CLI'
+  inputs:
+    command: custom
+    workingDir: ChamadoFacil/ChamadoFacil/ChamadoFacil.UserInterface
+    verbose: false
+    customCommand: 'install -g @angular/cli'
+
+- task: Npm@1
+  displayName: 'NPM Run Production'
+  inputs:
+    command: custom
+    workingDir: ChamadoFacil/ChamadoFacil/ChamadoFacil.UserInterface
+    verbose: false
+    customCommand: 'ng build --prod --aot'
