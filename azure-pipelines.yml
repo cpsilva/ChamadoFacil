@@ -13,7 +13,7 @@ resources:
   clean: true
 
 pool:
-  name: Hosted vs2017-win2019
+  name: Hosted Azure Pipelines
   demands: npm
 
 variables:
