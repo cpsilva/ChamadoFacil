@@ -13,7 +13,7 @@ resources:
   clean: true
 
 pool:
-  name: Hosted vs2017-win2016
+  name: Hosted vs2017-win209
   demands: npm
 
 variables:
