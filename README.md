@@ -6,7 +6,7 @@
 ## Integração Contínua
 [![Build status](https://ci.appveyor.com/api/projects/status/k3jawa7ghc88fp74?svg=true)](https://ci.appveyor.com/project/cpsilva/chamadofacil)
 
-[![Build Status](https://dev.azure.com/caiopirees/ChamadoFacil/_apis/build/status/cpsilva.ChamadoFacil?branchName=master)](https://dev.azure.com/caiopirees/ChamadoFacil/_build/latest?definitionId=1&branchName=master)
+[![Build Status](https://dev.azure.com/caiopirees/ChamadoFacil/_apis/build/status/cpsilva.ChamadoFacil?branchName=master)](https://dev.azure.com/caiopirees/ChamadoFacil/_build/latest?definitionId=1&branchName=main)
 
 ## Tecnologias Utilizadas:
 
