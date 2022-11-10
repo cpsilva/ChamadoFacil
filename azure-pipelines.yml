@@ -60,7 +60,7 @@ stages:
           command: 'build'
           projects: 'ChamadoFacil/ChamadoFacil.ApplicationService/ChamadoFacil.ApplicationService.csproj'
       
-      - script: dotnet publish -o $(build.artifactStagingDirectory)
+      - script: dotnet publish -o ChamadoFacil/ChamadoFacil.ApplicationService/ChamadoFacil.ApplicationService.csproj
         displayName: 'publish artifacts'
       
       - task: PublishPipelineArtifact@1
@@ -68,7 +68,7 @@ stages:
           targetPath: $(build.artifactStagingDirectory)
           artifact: 'drop'
           publishLocation: 'pipeline'    
-          
+
 - stage: test
   jobs:
     - job: test
