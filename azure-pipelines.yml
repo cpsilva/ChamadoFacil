@@ -20,38 +20,62 @@ pool:
 variables:
   BuildConfiguration: 'Release'
 
-steps:
-- task: Npm@1
-  displayName: 'NPM Install'
-  inputs:
-    workingDir: 'ChamadoFacil\ChamadoFacil.UserInterface'
-    verbose: true
+stages:
+- stage: build
+  jobs:
+    - job: build  
+      steps:
+      - task: Npm@1
+        displayName: 'NPM Install'
+        inputs:
+          workingDir: 'ChamadoFacil\ChamadoFacil.UserInterface'
+          verbose: true
 
-- task: Npm@1
-  displayName: 'NPM Install Angular CLI'
-  inputs:
-    command: custom
-    workingDir: 'ChamadoFacil\ChamadoFacil.UserInterface'
-    verbose: false
-    customCommand: 'install -g @angular/cli'
+      - task: Npm@1
+        displayName: 'NPM Install Angular CLI'
+        inputs:
+          command: custom
+          workingDir: 'ChamadoFacil\ChamadoFacil.UserInterface'
+          verbose: false
+          customCommand: 'install -g @angular/cli'
 
-- task: Npm@1
-  displayName: 'NPM Run Script Build'
-  inputs:
-    command: custom
-    workingDir: 'ChamadoFacil\ChamadoFacil.UserInterface'
-    verbose: false
-    customCommand: 'run-script build'
+      - task: Npm@1
+        displayName: 'NPM Run Script Build'
+        inputs:
+          command: custom
+          workingDir: 'ChamadoFacil\ChamadoFacil.UserInterface'
+          verbose: false
+          customCommand: 'run-script build'
 
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet restore'
-  inputs:
-    command: 'restore'
-    projects: 'ChamadoFacil\ChamadoFacil.ApplicationService\ChamadoFacil.ApplicationService.csproj'
-    feedsToUse: 'select'
+      - task: DotNetCoreCLI@2
+        displayName: 'dotnet restore'
+        inputs:
+          command: 'restore'
+          projects: 'ChamadoFacil\ChamadoFacil.ApplicationService\ChamadoFacil.ApplicationService.csproj'
+          feedsToUse: 'select'
 
-- task: DotNetCoreCLI@2
-  displayName: 'dotnet build'
-  inputs:
-    command: 'build'
-    projects: 'ChamadoFacil/ChamadoFacil.ApplicationService/ChamadoFacil.ApplicationService.csproj'
+      - task: DotNetCoreCLI@2
+        displayName: 'dotnet build'
+        inputs:
+          command: 'build'
+          projects: 'ChamadoFacil/ChamadoFacil.ApplicationService/ChamadoFacil.ApplicationService.csproj'
+      
+      - script: dotnet publish -o $(build.artifactStagingDirectory)
+        displayName: 'publish artifacts'
+      
+      - task: PublishPipelineArtifact@1
+        inputs:
+          targetPath: $(build.artifactStagingDirectory)
+          artifact: 'drop'
+          publishLocation: 'pipeline'    
+          
+- stage: test
+  jobs:
+    - job: test
+      steps:
+      - task: DotNetCoreCLI@2
+        inputs:
+          command: 'test'
+          projects: '**/*[Tt]est*/*.csproj'
+          publishTestResults: true
+          arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura'
