@@ -59,9 +59,13 @@ stages:
         inputs:
           command: 'build'
           projects: 'ChamadoFacil/ChamadoFacil.ApplicationService/ChamadoFacil.ApplicationService.csproj'
-      
-      - script: dotnet publish ChamadoFacil/ChamadoFacil.ApplicationService/ChamadoFacil.ApplicationService.csproj -o $(build.artifactStagingDirectory)
+          
+      - task: DotNetCoreCLI@2
         displayName: 'publish artifacts'
+        inputs:
+          command: 'publish'
+          projects: 'ChamadoFacil/ChamadoFacil.ApplicationService/ChamadoFacil.ApplicationService.csproj'
+          arguments: '-o $(build.artifactStagingDirectory)'
       
       - task: PublishPipelineArtifact@1
         inputs:
