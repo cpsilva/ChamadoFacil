@@ -24,8 +24,7 @@ namespace ChamadoFacil.ApplicationService
             services.AddCors();
             services.AddMvcCustom();
             Container.RegisterServices(services);
-            //Container.AddDbContext<DatabaseContext>(Configuration.GetConnectionString(nameof(DatabaseContext)));
-            Container.AddDbContextInMemoryDatabase<DatabaseContext>();
+            Container.AddDbContext<DatabaseContext>(Configuration.GetConnectionString(nameof(DatabaseContext)));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
