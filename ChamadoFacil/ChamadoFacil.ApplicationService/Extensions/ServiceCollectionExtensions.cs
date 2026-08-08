@@ -33,6 +33,7 @@ namespace ChamadoFacil.ApplicationService.Extensions
         {
             void Mvc(MvcOptions mvc)
             {
+                mvc.EnableEndpointRouting = false;
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
                 mvc.Filters.Add(new AuthorizeFilter(policy));
             }

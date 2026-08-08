@@ -12,7 +12,7 @@ namespace ChamadoFacil.ApplicationService.Extensions
         {
             void CorsPolicy(CorsPolicyBuilder corsPolicy)
             {
-                corsPolicy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials();
+                corsPolicy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
             }
 
             application.UseCors(CorsPolicy);
