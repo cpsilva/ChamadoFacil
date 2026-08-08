@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <AssemblyTitle>ChamadoFacil.BusinessLogic</AssemblyTitle>
     <Product>ChamadoFacil.BusinessLogic</Product>
     <Copyright>Copyright ©  2018</Copyright>
