@@ -1,20 +1,25 @@
-﻿using System;
-using System.Security.Cryptography;
-using System.Text;
+using Microsoft.AspNetCore.Identity;
 
 namespace ChamadoFacil.CrossCutting.Security.Hash
 {
     public class Hash : IHash
     {
+        private readonly PasswordHasher<object> _passwordHasher = new PasswordHasher<object>();
+
         public string Generate(string value)
         {
             if (string.IsNullOrWhiteSpace(value)) { return null; }
 
-            using (var algorithm = new SHA512Managed())
-            {
-                var bytes = algorithm.ComputeHash(Encoding.Unicode.GetBytes(value));
-                return Convert.ToBase64String(bytes, 0, bytes.Length);
-            }
+            return _passwordHasher.HashPassword(null, value);
+        }
+
+        public bool Verify(string hash, string providedPassword)
+        {
+            if (string.IsNullOrWhiteSpace(hash) || string.IsNullOrWhiteSpace(providedPassword)) { return false; }
+
+            var result = _passwordHasher.VerifyHashedPassword(null, hash, providedPassword);
+
+            return result != PasswordVerificationResult.Failed;
         }
     }
 }
