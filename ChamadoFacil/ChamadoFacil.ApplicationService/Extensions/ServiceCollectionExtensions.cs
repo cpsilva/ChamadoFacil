@@ -37,12 +37,12 @@ namespace ChamadoFacil.ApplicationService.Extensions
                 mvc.Filters.Add(new AuthorizeFilter(policy));
             }
 
-            void Json(MvcJsonOptions json)
+            void Json(MvcNewtonsoftJsonOptions json)
             {
                 json.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
             }
 
-            services.AddMvc(Mvc).AddJsonOptions(Json);
+            services.AddMvc(Mvc).AddNewtonsoftJson(Json);
         }
     }
 }

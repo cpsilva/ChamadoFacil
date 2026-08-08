@@ -30,7 +30,7 @@ namespace ChamadoFacil.DataAccess.Database.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ForSqlServerUseIdentityColumns();
+            modelBuilder.UseIdentityColumns();
             modelBuilder.ApplyConfiguration(new UserEntityTypeConfiguration());
         }
     }

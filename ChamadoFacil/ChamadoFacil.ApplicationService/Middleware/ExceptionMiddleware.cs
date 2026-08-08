@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Hosting;
 using System;
 using System.Net;
 using System.Net.Mime;
@@ -11,10 +12,10 @@ namespace ChamadoFacil.ApplicationService.Middleware
 {
     public class ExceptionMiddleware
     {
-        private readonly IHostingEnvironment _environment;
+        private readonly IWebHostEnvironment _environment;
         private readonly RequestDelegate _requestDelegate;
 
-        public ExceptionMiddleware(IHostingEnvironment environment, RequestDelegate requestDelegate)
+        public ExceptionMiddleware(IWebHostEnvironment environment, RequestDelegate requestDelegate)
         {
             _environment = environment;
             _requestDelegate = requestDelegate;
