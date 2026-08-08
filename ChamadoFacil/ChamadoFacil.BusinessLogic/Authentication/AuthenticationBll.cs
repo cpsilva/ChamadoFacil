@@ -22,11 +22,14 @@ namespace ChamadoFacil.BusinessLogic.Authentication
 
         public UsuarioModel Authenticate(AuthenticationModel authentication)
         {
-            authentication.Password = _hash.Generate(authentication.Password);
+            var usuario = _unitOfWork.QueryStack.Usuario.Selecionar(x => x.Email.Equals(authentication.Login));
 
-            var authenticated = _unitOfWork.QueryStack.Usuario.Selecionar(x => x.Email.Equals(authentication.Login) && x.Senha == authentication.Password);
+            if (usuario == null || !_hash.Verify(usuario.Senha, authentication.Password))
+            {
+                return null;
+            }
 
-            return authenticated;
+            return usuario;
         }
 
         public string GenerateJwt(UsuarioModel usuario)
