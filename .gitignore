@@ -1,34 +1,15 @@
 ﻿################################################################################
-# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+# .NET build output
 ################################################################################
+bin/
+obj/
 
-/ChamadoFacil/.vs/ChamadoFacil/v15
-/ChamadoFacil/ChamadoFacil.ApplicationService/obj
-/ChamadoFacil/ChamadoFacil.BusinessLogic/obj/Debug
-/ChamadoFacil/ChamadoFacil.CrossCutting/obj/Debug
-/ChamadoFacil/ChamadoFacil.DataAccess/obj/Debug
-/ChamadoFacil/ChamadoFacil.DependencyInjection/obj/Debug
-/ChamadoFacil/ChamadoFacil.Mapping/obj/Debug
-/ChamadoFacil/.vs/config
+/ChamadoFacil/.vs/
 /ChamadoFacil/node_modules
 /ChamadoFacil/packages
-/ChamadoFacil/ChamadoFacil.Models/obj/Debug
-/ChamadoFacil/ChamadoFacil.ApplicationService/bin/Debug/netcoreapp2.0
-/ChamadoFacil/ChamadoFacil.CrossCutting/bin/Debug
-/ChamadoFacil/ChamadoFacil.BusinessLogic/bin/Debug
-/ChamadoFacil/ChamadoFacil.DataAccess/bin/Debug
-/ChamadoFacil/ChamadoFacil.DataAccess.Test/bin/Debug
-/ChamadoFacil/ChamadoFacil.DataAccess.Test/obj/Debug
-/ChamadoFacil/ChamadoFacil.DependencyInjection/bin/Debug
-/ChamadoFacil/ChamadoFacil.Models/bin/Debug
-/ChamadoFacil/.vs/ChamadoFacil/DesignTimeBuild
-/ChamadoFacil/ChamadoFacil.Mapping/bin/Debug
-/ChamadoFacil/.vs/ChamadoFacil/v14
 /ChamadoFacil/ChamadoFacil.ApplicationService/ChamadoFacil.ApplicationService.csproj.user
-/ChamadoFacil/ChamadoFacil.BusinessLogic/obj
-/ChamadoFacil/ChamadoFacil.CrossCutting/obj
-/ChamadoFacil/ChamadoFacil.DataAccess/obj
-/ChamadoFacil/ChamadoFacil.DataAccess.Test/obj
-/ChamadoFacil/ChamadoFacil.DependencyInjection/obj
-/ChamadoFacil/ChamadoFacil.Mapping/obj
-/ChamadoFacil/ChamadoFacil.Models/obj
+
+# Local secrets — never commit provisioning output
+.env
+.env.*
+.scratch/modernize/*.env

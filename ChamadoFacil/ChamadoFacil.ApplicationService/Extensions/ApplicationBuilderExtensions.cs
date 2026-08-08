@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 
 namespace ChamadoFacil.ApplicationService.Extensions
 {
@@ -17,12 +18,11 @@ namespace ChamadoFacil.ApplicationService.Extensions
             application.UseCors(CorsPolicy);
         }
 
-        public static void UseExceptionCustom(this IApplicationBuilder application, IHostingEnvironment environment)
+        public static void UseExceptionCustom(this IApplicationBuilder application, IWebHostEnvironment environment)
         {
             if (environment.IsDevelopment())
             {
                 application.UseDeveloperExceptionPage();
-                application.UseDatabaseErrorPage();
             }
 
             application.UseExceptionMiddleware();
