@@ -20,7 +20,7 @@ namespace ChamadoFacil.ApplicationService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDependencyInjectionCustom(Configuration);
-            services.AddAuthenticationCustom();
+            services.AddAuthenticationCustom(Configuration);
             services.AddCors();
             services.AddMvcCustom();
             Container.RegisterServices(services);

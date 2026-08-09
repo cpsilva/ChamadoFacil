@@ -44,7 +44,7 @@ namespace ChamadoFacil.DependencyInjection
             _services.AddScoped<ICategoriaBll, CategoriaBll>();
 
             //ChamadoFacil.CrossCutting
-            _services.AddScoped<IJWT, Jwt>();
+            _services.AddSingleton<IJWT, Jwt>();
             _services.AddScoped<IHash, Hash>();
             _services.AddScoped<ICryptography, Cryptography>();
 
