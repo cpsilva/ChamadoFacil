@@ -1,4 +1,5 @@
 ﻿using ChamadoFacil.DataAccess.Database.Configuration;
+using ChamadoFacil.Models.Authentication;
 using ChamadoFacil.Models.Categoria;
 using ChamadoFacil.Models.Chamado;
 using ChamadoFacil.Models.User;
@@ -11,6 +12,7 @@ namespace ChamadoFacil.DataAccess.Database.Context
         public DbSet<UsuarioModel> Usuarios { get; set; }
         public DbSet<ChamadoModel> Chamados { get; set; }
         public DbSet<CategoriaModel> Categorias { get; set; }
+        public DbSet<RefreshTokenModel> RefreshTokens { get; set; }
 
         public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
         {
@@ -20,6 +22,7 @@ namespace ChamadoFacil.DataAccess.Database.Context
         {
             modelBuilder.UseIdentityColumns();
             modelBuilder.ApplyConfiguration(new UserEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new RefreshTokenEntityTypeConfiguration());
         }
     }
 }
