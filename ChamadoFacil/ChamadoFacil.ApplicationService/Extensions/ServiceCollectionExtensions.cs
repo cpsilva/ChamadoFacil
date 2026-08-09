@@ -17,16 +17,19 @@ namespace ChamadoFacil.ApplicationService.Extensions
             Container.RegisterServices(services);
         }
 
-        public static void AddAuthenticationCustom(this IServiceCollection services)
+        public static void AddAuthenticationCustom(this IServiceCollection services, IConfiguration configuration)
         {
-            void JwtBearer(JwtBearerOptions jwtBearer)
-            {
-                jwtBearer.RequireHttpsMetadata = false;
-                jwtBearer.SaveToken = true;
-                jwtBearer.TokenValidationParameters = new Jwt().GetTokenValidationParameters();
-            }
+            services.Configure<JwtSettings>(configuration.GetSection("JwtSettings"));
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(JwtBearer);
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();
+
+            services.AddOptions<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme)
+                .Configure<IJWT>((jwtBearer, jwt) =>
+                {
+                    jwtBearer.RequireHttpsMetadata = false;
+                    jwtBearer.SaveToken = true;
+                    jwtBearer.TokenValidationParameters = jwt.GetTokenValidationParameters();
+                });
         }
 
         public static void AddMvcCustom(this IServiceCollection services)

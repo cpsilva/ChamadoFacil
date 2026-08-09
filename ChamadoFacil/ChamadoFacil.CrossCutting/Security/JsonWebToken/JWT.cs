@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -11,12 +12,14 @@ namespace ChamadoFacil.CrossCutting.Security.JsonWebToken
 {
     public class Jwt : IJWT
     {
+        private readonly JwtSettings _settings;
         private readonly SymmetricSecurityKey _securityKey;
         private readonly SigningCredentials _signingCredentials;
 
-        public Jwt()
+        public Jwt(IOptions<JwtSettings> options)
         {
-            _securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTSettings.SecurityKey));
+            _settings = options.Value;
+            _securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_settings.SecurityKey));
             _signingCredentials = new SigningCredentials(_securityKey, SecurityAlgorithms.HmacSha512);
         }
 
@@ -44,11 +47,11 @@ namespace ChamadoFacil.CrossCutting.Security.JsonWebToken
 
             var jwtSecurityToken = new JwtSecurityToken
             (
-                JWTSettings.Issuer,
-                JWTSettings.Audience,
+                _settings.Issuer,
+                _settings.Audience,
                 claims,
                 DateTime.UtcNow,
-                DateTime.UtcNow.AddDays(JWTSettings.ExpirationTime),
+                DateTime.UtcNow.AddMinutes(_settings.AccessTokenExpirationMinutes),
                 _signingCredentials
             );
 
@@ -64,8 +67,8 @@ namespace ChamadoFacil.CrossCutting.Security.JsonWebToken
                 ValidateAudience = true,
                 ValidateIssuerSigningKey = true,
                 ValidateLifetime = true,
-                ValidAudience = JWTSettings.Audience,
-                ValidIssuer = JWTSettings.Issuer
+                ValidAudience = _settings.Audience,
+                ValidIssuer = _settings.Issuer
             };
         }
     }
