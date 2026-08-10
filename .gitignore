@@ -12,4 +12,7 @@ obj/
 # Local secrets — never commit provisioning output
 .env
 .env.*
-.scratch/modernize/*.env
+
+# Agent working state — local only, never committed
+.claude/
+.scratch/
