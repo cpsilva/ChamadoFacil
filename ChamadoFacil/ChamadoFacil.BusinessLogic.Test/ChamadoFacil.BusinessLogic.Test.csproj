@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+    <PackageReference Include="NSubstitute" Version="5.3.0" />
+    <PackageReference Include="NUnit" Version="4.4.0" />
+    <PackageReference Include="NUnit.Analyzers" Version="4.7.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="5.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="NUnit.Framework" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ChamadoFacil.BusinessLogic\ChamadoFacil.BusinessLogic.csproj" />
+    <ProjectReference Include="..\ChamadoFacil.CrossCutting\ChamadoFacil.CrossCutting.csproj" />
+    <ProjectReference Include="..\ChamadoFacil.DataAccess\ChamadoFacil.DataAccess.csproj" />
+    <ProjectReference Include="..\ChamadoFacil.Models\ChamadoFacil.Models.csproj" />
+  </ItemGroup>
+
+</Project>
