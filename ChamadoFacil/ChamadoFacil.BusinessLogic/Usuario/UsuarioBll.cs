@@ -1,4 +1,6 @@
-﻿using ChamadoFacil.CrossCutting.Security.Hash;
+using System.Threading;
+using System.Threading.Tasks;
+using ChamadoFacil.CrossCutting.Security.Hash;
 using ChamadoFacil.DataAccess;
 using ChamadoFacil.Models.User;
 
@@ -15,12 +17,12 @@ namespace ChamadoFacil.BusinessLogic.Usuario
             _hash = hash;
         }
 
-        public void Cadastrar(UsuarioModel usuario)
+        public async Task CadastrarAsync(UsuarioModel usuario, CancellationToken cancellationToken)
         {
             usuario.Senha = _hash.Generate(usuario.Senha);
 
             _unitOfWork.CommandStack.Usuario.Adicionar(usuario);
-            _unitOfWork.CommandStack.SaveChanges();
+            await _unitOfWork.CommandStack.SaveChangesAsync(cancellationToken);
         }
     }
 }

@@ -1,14 +1,19 @@
-﻿using ChamadoFacil.Models.Models;
+using ChamadoFacil.Models.Authentication;
+using ChamadoFacil.Models.Models;
 using ChamadoFacil.Models.User;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ChamadoFacil.BusinessLogic.Authentication
 {
     public interface IAuthenticationBll
     {
-        UsuarioModel Authenticate(AuthenticationModel authentication);
+        Task<UsuarioModel> AuthenticateAsync(AuthenticationModel authentication, CancellationToken cancellationToken);
 
-        string GenerateJwt(UsuarioModel authenticated);
+        Task<TokenPairModel> IssueTokensAsync(UsuarioModel usuario, CancellationToken cancellationToken);
 
-        void Logout(long userId);
+        Task<TokenPairModel> RefreshAsync(string refreshToken, CancellationToken cancellationToken);
+
+        Task LogoutAsync(string refreshToken, CancellationToken cancellationToken);
     }
 }

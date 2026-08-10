@@ -1,16 +1,18 @@
-﻿using ChamadoFacil.Models.Chamado;
+using ChamadoFacil.Models.Chamado;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ChamadoFacil.BusinessLogic.Chamado
 {
     public interface IChamadoBll
     {
-        ChamadoModel Selecionar(int id);
+        Task<ChamadoModel> SelecionarAsync(int id, CancellationToken cancellationToken);
 
-        IList<ChamadoModel> Listar();
+        Task<IList<ChamadoModel>> ListarAsync(CancellationToken cancellationToken);
 
-        void Apagar(int id);
+        Task ApagarAsync(int id, CancellationToken cancellationToken);
 
-        void Salvar(ChamadoModel chamadoModel);
+        Task SalvarAsync(ChamadoModel chamadoModel, CancellationToken cancellationToken);
     }
 }

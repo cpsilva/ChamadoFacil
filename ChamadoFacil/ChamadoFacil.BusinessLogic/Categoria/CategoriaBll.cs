@@ -1,7 +1,5 @@
-﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using ChamadoFacil.DataAccess;
 using ChamadoFacil.Models.Categoria;
@@ -17,9 +15,9 @@ namespace ChamadoFacil.BusinessLogic.Categoria
             _unitOfWork = unitOfWork;
         }
 
-        public IEnumerable<CategoriaModel> Listar(CategoriaModel categoria)
+        public async Task<IEnumerable<CategoriaModel>> ListarAsync(CancellationToken cancellationToken)
         {
-            return _unitOfWork.QueryStack.Categoria.Listar();
+            return await _unitOfWork.QueryStack.Categoria.ListarAsync(cancellationToken);
         }
     }
 }
