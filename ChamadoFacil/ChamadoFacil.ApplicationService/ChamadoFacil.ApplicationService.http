@@ -1,0 +1,94 @@
+@baseUrl = http://localhost:54964
+
+### Register a new usuario
+POST {{baseUrl}}/api/usuarios
+Content-Type: application/json
+
+{
+  "nome": "Test User",
+  "email": "test@example.com",
+  "senha": "CorrectHorse123"
+}
+
+### Login with correct credentials
+# @name login
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "login": "test@example.com",
+  "password": "CorrectHorse123"
+}
+
+### Login with wrong password (expect 401)
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "login": "test@example.com",
+  "password": "WrongPassword"
+}
+
+### Refresh the access token
+POST {{baseUrl}}/api/auth/refresh
+Content-Type: application/json
+
+{
+  "refreshToken": "{{login.response.body.refreshToken}}"
+}
+
+### Logout (revoke refresh token)
+POST {{baseUrl}}/api/auth/logout
+Content-Type: application/json
+
+{
+  "refreshToken": "{{login.response.body.refreshToken}}"
+}
+
+### Get all categorias (requires bearer token)
+GET {{baseUrl}}/api/categorias
+Authorization: Bearer {{login.response.body.accessToken}}
+
+### Get all chamados (requires bearer token)
+GET {{baseUrl}}/api/chamados
+Authorization: Bearer {{login.response.body.accessToken}}
+
+### Get all chamados without a token (expect 401)
+GET {{baseUrl}}/api/chamados
+
+### Create a chamado
+# @name createChamado
+POST {{baseUrl}}/api/chamados
+Authorization: Bearer {{login.response.body.accessToken}}
+Content-Type: application/json
+
+{
+  "titulo": "Impressora não funciona",
+  "mensagem": "A impressora do 2º andar não liga.",
+  "urgencia": 2,
+  "categoriaId": 1
+}
+
+### Get a chamado by ID
+GET {{baseUrl}}/api/chamados/{{createChamado.response.body.id}}
+Authorization: Bearer {{login.response.body.accessToken}}
+
+### Get a non-existent chamado (expect 404)
+GET {{baseUrl}}/api/chamados/999999
+Authorization: Bearer {{login.response.body.accessToken}}
+
+### Update a chamado (fixes the "edit silently creates a duplicate" bug)
+PUT {{baseUrl}}/api/chamados/{{createChamado.response.body.id}}
+Authorization: Bearer {{login.response.body.accessToken}}
+Content-Type: application/json
+
+{
+  "titulo": "Impressora não funciona (atualizado)",
+  "mensagem": "A impressora do 2º andar não liga. Já reiniciada, ainda com defeito.",
+  "urgencia": 3,
+  "categoriaId": 1
+}
+
+### Delete a chamado
+DELETE {{baseUrl}}/api/chamados/{{createChamado.response.body.id}}
+Authorization: Bearer {{login.response.body.accessToken}}

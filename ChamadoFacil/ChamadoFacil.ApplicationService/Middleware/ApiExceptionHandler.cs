@@ -23,6 +23,7 @@ namespace ChamadoFacil.ApplicationService.Middleware
             var (statusCode, title, detail) = exception switch
             {
                 BusinessException businessException => (StatusCodes.Status400BadRequest, "Bad Request", businessException.Message),
+                BadHttpRequestException badHttpRequestException => (badHttpRequestException.StatusCode, "Bad Request", badHttpRequestException.Message),
                 _ => (StatusCodes.Status500InternalServerError, "Internal Server Error", "An unexpected error occurred.")
             };
 
