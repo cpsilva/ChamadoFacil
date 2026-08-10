@@ -1,6 +1,9 @@
-﻿using ChamadoFacil.Models.Categoria;
+using ChamadoFacil.Models.Authentication;
+using ChamadoFacil.Models.Categoria;
 using ChamadoFacil.Models.Chamado;
 using ChamadoFacil.Models.User;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ChamadoFacil.DataAccess
 {
@@ -9,7 +12,8 @@ namespace ChamadoFacil.DataAccess
         ICommandRepository<UsuarioModel> Usuario { get; }
         ICommandRepository<ChamadoModel> Chamado { get; }
         ICommandRepository<CategoriaModel> Categoria { get; }
+        ICommandRepository<RefreshTokenModel> RefreshToken { get; }
 
-        void SaveChanges();
+        Task SaveChangesAsync(CancellationToken cancellationToken);
     }
 }

@@ -1,8 +1,8 @@
-﻿using ChamadoFacil.DataAccess.Database.Context;
+using ChamadoFacil.DataAccess.Database.Context;
 using ChamadoFacil.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ChamadoFacil.DataAccess
 {
@@ -22,13 +22,12 @@ namespace ChamadoFacil.DataAccess
 
         public void Atualizar(T entity)
         {
-            var e = _dbContext.Entry(entity);
             _dbContext.Entry(entity).State = EntityState.Modified;
         }
 
-        public void Apagar(int id)
+        public async Task ApagarAsync(int id, CancellationToken cancellationToken)
         {
-            var entityTrackeable = _dbContext.Set<T>().Find(id);
+            var entityTrackeable = await _dbContext.Set<T>().FindAsync(new object[] { id }, cancellationToken);
             if (entityTrackeable == null) { return; }
             _dbContext.Set<T>().Remove(entityTrackeable);
         }

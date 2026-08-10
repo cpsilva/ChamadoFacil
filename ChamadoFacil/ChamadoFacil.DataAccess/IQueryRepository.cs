@@ -1,22 +1,24 @@
-﻿using ChamadoFacil.Models;
+using ChamadoFacil.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ChamadoFacil.DataAccess
 {
     public interface IQueryRepository<T> where T : BaseModel
     {
-        int Contar(Expression<Func<T, bool>> predicate);
+        Task<int> ContarAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken);
 
-        bool Existe(Expression<Func<T, bool>> predicate);
+        Task<bool> ExisteAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken);
 
-        List<T> Listar();
+        Task<List<T>> ListarAsync(CancellationToken cancellationToken);
 
-        T Selecionar(Expression<Func<T, bool>> predicate);
+        Task<T> SelecionarAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken);
 
-        T Selecionar(int id);
+        Task<T> SelecionarAsync(int id, CancellationToken cancellationToken);
 
-        T SelecionarUltimo<TKey>(Expression<Func<T, bool>> predicate, Expression<Func<T, TKey>> order);
+        Task<T> SelecionarUltimoAsync<TKey>(Expression<Func<T, bool>> predicate, Expression<Func<T, TKey>> order, CancellationToken cancellationToken);
     }
 }
