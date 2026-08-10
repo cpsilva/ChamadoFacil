@@ -51,3 +51,7 @@ app.MapUsuarios();
 app.MapAuth();
 
 app.Run();
+
+public partial class Program
+{
+}
