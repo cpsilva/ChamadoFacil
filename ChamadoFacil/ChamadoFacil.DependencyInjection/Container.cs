@@ -18,6 +18,12 @@ namespace ChamadoFacil.DependencyInjection
 
         private static IServiceCollection _services;
 
+        public static void Reset()
+        {
+            _services = null;
+            _serviceProvider = null;
+        }
+
         public static T GetService<T>()
         {
             if (_services == null)
@@ -66,7 +72,7 @@ namespace ChamadoFacil.DependencyInjection
 
         public static void AddDbContextInMemoryDatabase<T>() where T : DbContext
         {
-            _services.AddDbContext<T>(options => options.UseInMemoryDatabase(typeof(T).Name));
+            _services.AddDbContext<T>(options => options.UseInMemoryDatabase(Guid.NewGuid().ToString()));
             GetService<T>().Database.EnsureCreated();
         }
     }
