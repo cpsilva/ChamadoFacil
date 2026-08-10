@@ -11,10 +11,12 @@ namespace ChamadoFacil.ApplicationService.Middleware
 {
     public sealed class ApiExceptionHandler : IExceptionHandler
     {
+        private readonly IProblemDetailsService _problemDetailsService;
         private readonly ILogger<ApiExceptionHandler> _logger;
 
-        public ApiExceptionHandler(ILogger<ApiExceptionHandler> logger)
+        public ApiExceptionHandler(IProblemDetailsService problemDetailsService, ILogger<ApiExceptionHandler> logger)
         {
+            _problemDetailsService = problemDetailsService;
             _logger = logger;
         }
 
@@ -31,15 +33,17 @@ namespace ChamadoFacil.ApplicationService.Middleware
 
             httpContext.Response.StatusCode = statusCode;
 
-            await httpContext.Response.WriteAsJsonAsync(new ProblemDetails
+            return await _problemDetailsService.TryWriteAsync(new ProblemDetailsContext
             {
-                Status = statusCode,
-                Title = title,
-                Detail = detail,
-                Instance = httpContext.Request.Path
-            }, cancellationToken);
-
-            return true;
+                HttpContext = httpContext,
+                ProblemDetails = new ProblemDetails
+                {
+                    Status = statusCode,
+                    Title = title,
+                    Detail = detail,
+                    Instance = httpContext.Request.Path
+                }
+            });
         }
     }
 }
