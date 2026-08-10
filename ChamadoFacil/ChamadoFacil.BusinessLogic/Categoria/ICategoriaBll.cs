@@ -1,10 +1,12 @@
-﻿using ChamadoFacil.Models.Categoria;
+using ChamadoFacil.Models.Categoria;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ChamadoFacil.BusinessLogic.Categoria
 {
     public interface ICategoriaBll
     {
-        IEnumerable<CategoriaModel> Listar(CategoriaModel categoria);
+        Task<IEnumerable<CategoriaModel>> ListarAsync(CancellationToken cancellationToken);
     }
 }

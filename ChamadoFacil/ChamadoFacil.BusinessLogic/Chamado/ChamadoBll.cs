@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using ChamadoFacil.DataAccess;
 using ChamadoFacil.Models.Chamado;
 
@@ -13,18 +15,18 @@ namespace ChamadoFacil.BusinessLogic.Chamado
             _unitOfWork = unitOfWork;
         }
 
-        public void Apagar(int id)
+        public async Task ApagarAsync(int id, CancellationToken cancellationToken)
         {
-            _unitOfWork.CommandStack.Chamado.Apagar(id);
-            _unitOfWork.CommandStack.SaveChanges();
+            await _unitOfWork.CommandStack.Chamado.ApagarAsync(id, cancellationToken);
+            await _unitOfWork.CommandStack.SaveChangesAsync(cancellationToken);
         }
 
-        public IList<ChamadoModel> Listar()
+        public async Task<IList<ChamadoModel>> ListarAsync(CancellationToken cancellationToken)
         {
-            return _unitOfWork.QueryStack.Chamado.Listar();
+            return await _unitOfWork.QueryStack.Chamado.ListarAsync(cancellationToken);
         }
 
-        public void Salvar(ChamadoModel chamadoModel)
+        public async Task SalvarAsync(ChamadoModel chamadoModel, CancellationToken cancellationToken)
         {
             if (chamadoModel.Id > 0)
             {
@@ -35,12 +37,12 @@ namespace ChamadoFacil.BusinessLogic.Chamado
                 _unitOfWork.CommandStack.Chamado.Adicionar(chamadoModel);
             }
 
-            _unitOfWork.CommandStack.SaveChanges();
+            await _unitOfWork.CommandStack.SaveChangesAsync(cancellationToken);
         }
 
-        public ChamadoModel Selecionar(int id)
+        public Task<ChamadoModel> SelecionarAsync(int id, CancellationToken cancellationToken)
         {
-            return _unitOfWork.QueryStack.Chamado.Selecionar(id);
+            return _unitOfWork.QueryStack.Chamado.SelecionarAsync(id, cancellationToken);
         }
     }
 }

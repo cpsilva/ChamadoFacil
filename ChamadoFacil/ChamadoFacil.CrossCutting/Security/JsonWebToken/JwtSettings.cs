@@ -9,5 +9,7 @@ namespace ChamadoFacil.CrossCutting.Security.JsonWebToken
         public string Issuer { get; set; }
 
         public int AccessTokenExpirationMinutes { get; set; } = 15;
+
+        public int RefreshTokenExpirationDays { get; set; } = 7;
     }
 }
