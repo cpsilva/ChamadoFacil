@@ -2,6 +2,8 @@
 using ChamadoFacil.DependencyInjection;
 using ChamadoFacil.Models.Categoria;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ChamadoFacil.DataAccess.Test
 {
@@ -9,7 +11,7 @@ namespace ChamadoFacil.DataAccess.Test
     public class CategoriaTest
     {
         [TestMethod]
-        public void CategoriaTeste()
+        public async Task CategoriaTeste()
         {
             Container.RegisterServices();
             Container.AddDbContextInMemoryDatabase<DatabaseContext>();
@@ -22,7 +24,7 @@ namespace ChamadoFacil.DataAccess.Test
             };
 
             unit.CommandStack.Categoria.Adicionar(c);
-            unit.CommandStack.SaveChanges();
+            await unit.CommandStack.SaveChangesAsync(CancellationToken.None);
         }
     }
 }

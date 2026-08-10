@@ -1,4 +1,5 @@
-﻿using ChamadoFacil.Models.Categoria;
+using ChamadoFacil.Models.Authentication;
+using ChamadoFacil.Models.Categoria;
 using ChamadoFacil.Models.Chamado;
 using ChamadoFacil.Models.User;
 
@@ -9,5 +10,6 @@ namespace ChamadoFacil.DataAccess
         IQueryRepository<UsuarioModel> Usuario { get; }
         IQueryRepository<CategoriaModel> Categoria { get; }
         IQueryRepository<ChamadoModel> Chamado { get; }
+        IQueryRepository<RefreshTokenModel> RefreshToken { get; }
     }
 }

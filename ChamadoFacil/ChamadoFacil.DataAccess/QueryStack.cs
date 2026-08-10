@@ -1,4 +1,5 @@
-﻿using ChamadoFacil.DataAccess.Database.Context;
+using ChamadoFacil.DataAccess.Database.Context;
+using ChamadoFacil.Models.Authentication;
 using ChamadoFacil.Models.Categoria;
 using ChamadoFacil.Models.Chamado;
 using ChamadoFacil.Models.User;
@@ -15,6 +16,8 @@ namespace ChamadoFacil.DataAccess
 
         public IQueryRepository<ChamadoModel> Chamado { get; }
 
+        public IQueryRepository<RefreshTokenModel> RefreshToken { get; }
+
         public QueryStack(DatabaseContext databaseContext)
         {
             DatabaseContext = databaseContext;
@@ -22,6 +25,7 @@ namespace ChamadoFacil.DataAccess
             Usuario = new QueryRepository<UsuarioModel>(DatabaseContext);
             Categoria = new QueryRepository<CategoriaModel>(DatabaseContext);
             Chamado = new QueryRepository<ChamadoModel>(DatabaseContext);
+            RefreshToken = new QueryRepository<RefreshTokenModel>(DatabaseContext);
         }
     }
 }

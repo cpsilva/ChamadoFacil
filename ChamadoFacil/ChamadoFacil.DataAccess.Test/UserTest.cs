@@ -2,6 +2,8 @@
 using ChamadoFacil.DependencyInjection;
 using ChamadoFacil.Models.User;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ChamadoFacil.DataAccess.Test
 {
@@ -9,7 +11,7 @@ namespace ChamadoFacil.DataAccess.Test
     public class UserTest
     {
         [TestMethod]
-        public void GerarTabela()
+        public async Task GerarTabela()
         {
             Container.RegisterServices();
             Container.AddDbContextInMemoryDatabase<DatabaseContext>();
@@ -23,7 +25,7 @@ namespace ChamadoFacil.DataAccess.Test
             };
 
             unit.CommandStack.Usuario.Adicionar(u);
-            unit.CommandStack.SaveChanges();
+            await unit.CommandStack.SaveChangesAsync(CancellationToken.None);
         }
     }
 }

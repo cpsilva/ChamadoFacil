@@ -1,10 +1,12 @@
-﻿using ChamadoFacil.DataAccess.Database.Context;
+using ChamadoFacil.DataAccess.Database.Context;
 using ChamadoFacil.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace ChamadoFacil.DataAccess
 {
@@ -17,53 +19,53 @@ namespace ChamadoFacil.DataAccess
             _dbContext = dbContext;
         }
 
-        public int Contar(Expression<Func<T, bool>> predicate)
+        public Task<int> ContarAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken)
         {
             return _dbContext
                 .Set<T>()
                 .Where(predicate)
                 .AsNoTracking()
-                .Count();
+                .CountAsync(cancellationToken);
         }
 
-        public bool Existe(Expression<Func<T, bool>> predicate)
+        public Task<bool> ExisteAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken)
         {
             return _dbContext
                 .Set<T>()
                 .AsNoTracking()
-                .Any(predicate);
+                .AnyAsync(predicate, cancellationToken);
         }
 
-        public List<T> Listar()
+        public Task<List<T>> ListarAsync(CancellationToken cancellationToken)
         {
             return _dbContext
                 .Set<T>()
                 .AsNoTracking()
-                .ToList();
+                .ToListAsync(cancellationToken);
         }
 
-        public T Selecionar(Expression<Func<T, bool>> predicate)
+        public Task<T> SelecionarAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken)
         {
             return _dbContext
                 .Set<T>()
                 .AsNoTracking()
-                .SingleOrDefault(predicate);
+                .SingleOrDefaultAsync(predicate, cancellationToken);
         }
 
-        public T Selecionar(int id)
+        public async Task<T> SelecionarAsync(int id, CancellationToken cancellationToken)
         {
-            return _dbContext
+            return await _dbContext
                 .Set<T>()
-                .Find(id);
+                .FindAsync(new object[] { id }, cancellationToken);
         }
 
-        public T SelecionarUltimo<TKey>(Expression<Func<T, bool>> predicate, Expression<Func<T, TKey>> order)
+        public Task<T> SelecionarUltimoAsync<TKey>(Expression<Func<T, bool>> predicate, Expression<Func<T, TKey>> order, CancellationToken cancellationToken)
         {
             return _dbContext
                  .Set<T>()
                  .AsNoTracking()
                  .OrderByDescending(order)
-                 .FirstOrDefault(predicate);
+                 .FirstOrDefaultAsync(predicate, cancellationToken);
         }
     }
 }
